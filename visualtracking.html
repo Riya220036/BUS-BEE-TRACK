@@ -1,0 +1,239 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track My Bus</title>
+    <style>
+      body {
+        background-image: url("https://img.freepik.com/premium-photo/travel-by-bus-train-night-weather-conditions-fog-double-exposure-abstract-background-digital-illustration_124507-104208.jpg");
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .header,
+      .footer {
+        background-color: rgba(13, 148, 136, 0.9); /* Teal color with opacity */
+        color: white;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .nav {
+        background-color: transparent; /* Transparent background */
+        color: white;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-top: 10px; /* Add margin to separate from header */
+      }
+      .nav a {
+        background-color: white;
+        color: #0d9488; /* Teal color */
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+        border-radius: 5px;
+        border: 2px solid #0d9488; /* Teal border */
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .nav a:hover {
+        background-color: #0d9488; /* Teal color */
+        color: white;
+      }
+      .main {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .form-container {
+        background-color: rgba(255, 255, 255, 0.9); /* White with opacity */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        border: 2px solid teal;
+      }
+      .form-container h2 {
+        color: #0d9488; /* Teal color */
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .form-container label {
+        display: block;
+        color: #4a4a4a;
+        margin-bottom: 5px;
+      }
+      .form-container input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      .form-container button {
+        background-color: #0d9488; /* Teal color */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .form-container button:hover {
+        background-color: #0f766e; /* Darker teal */
+      }
+      .result {
+        margin-top: 20px;
+      }
+      .result .location,
+      .result .stops {
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+      .result .location h3,
+      .result .stops h4 {
+        color: #0d9488; /* Teal color */
+      }
+      .result .location p,
+      .result .stops ul {
+        margin: 10px 0;
+      }
+      .result .stops ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+      .bus-location {
+        background-color: white; /* White background */
+        color: #0d9488; /* Teal text */
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        border: 2px solid #0d9488; /* Teal border */
+        border: 2px solid teal;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <h1>Track My Bus</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <a href="new2.html">Home</a>
+      <a href="studesh.html">Dashboard</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="form-container">
+        <h2>Enter Bus's GPS ID and Bus No. to Track</h2>
+        <form id="gpsForm">
+          <label for="gpsId">GPS ID:</label>
+          <input type="text" id="gpsId" name="gpsId" required />
+          <label for="busNo">Bus No.:</label>
+          <input type="text" id="busNo" name="busNo" required />
+          <button type="submit">SUBMIT</button>
+        </form>
+        <div id="result" class="result"></div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2023 Track My Bus</p>
+    </footer>
+
+    <script>
+      const token = window.localStorage.getItem("token");
+      if (!token) {
+        window.location.href = "student login.html";
+      }
+
+      document
+        .getElementById("gpsForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const gpsId = document.getElementById("gpsId").value;
+          const busNo = document.getElementById("busNo").value;
+          const resultDiv = document.getElementById("result");
+
+          if (gpsId === "321" && busNo === "79") {
+            resultDiv.innerHTML = `
+                    <div class="location">
+                        <h3>Bus Location</h3>
+                        <p>Bus No: <span class="font-bold">79</span></p>
+                        <p>GPS ID: <span class="font-bold">321</span></p>
+                        <p>Live Location: Latitude: 37.7749, Longitude: -122.4194</p>
+                        <div class="bus-location">Bus is currently at San Francisco</div>
+                    </div>
+                    <div class="stops">
+                        <h4>Recent Stops:</h4>
+                        <ul>
+                            <li>Stop 1: Latitude: 37.7740, Longitude: -122.4313</li>
+                            <li>Stop 2: Latitude: 37.7750, Longitude: -122.4183</li>
+                            <li>Stop 3: Latitude: 37.7760, Longitude: -122.4094</li>
+                        </ul>
+                    </div>
+                `;
+          } else {
+            resultDiv.innerHTML = `
+                    <div class="error">
+                        <p class="text-red-600">Please re-enter the correct GPS ID and Bus No.</p>
+                        <form id="retryForm">
+                            <label for="retryGpsId">GPS ID:</label>
+                            <input type="text" id="retryGpsId" name="retryGpsId" required>
+                            <label for="retryBusNo">Bus No.:</label>
+                            <input type="text" id="retryBusNo" name="retryBusNo" required>
+                            <button type="submit">SUBMIT</button>
+                        </form>
+                    </div>
+                `;
+
+            document
+              .getElementById("retryForm")
+              .addEventListener("submit", function (event) {
+                event.preventDefault();
+                const retryGpsId = document.getElementById("retryGpsId").value;
+                const retryBusNo = document.getElementById("retryBusNo").value;
+
+                if (retryGpsId === "321" && retryBusNo === "79") {
+                  resultDiv.innerHTML = `
+                            <div class="location">
+                                <h3>Bus Location</h3>
+                                <p>Bus No: <span class="font-bold">79</span></p>
+                                <p>GPS ID: <span class="font-bold">321</span></p>
+                                <p>Live Location: Latitude: 37.7749, Longitude: -122.4194</p>
+                                <div class="bus-location">Bus is currently at San Francisco</div>
+                            </div>
+                            <div class="stops">
+                                <h4>Recent Stops:</h4>
+                                <ul>
+                                    <li>Stop 1: Latitude: 37.7740, Longitude: -122.4313</li>
+                                    <li>Stop 2: Latitude: 37.7750, Longitude: -122.4183</li>
+                                    <li>Stop 3: Latitude: 37.7760, Longitude: -122.4094</li>
+                                </ul>
+                            </div>
+                        `;
+                } else {
+                  resultDiv.innerHTML =
+                    '<div class="error text-red-600">Please re-enter the correct GPS ID and Bus No.</div>';
+                }
+              });
+          }
+        });
+    </script>
+  </body>
+</html>

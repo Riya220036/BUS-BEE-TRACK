@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Bee Track - Driver Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            background: url('https://img.freepik.com/premium-photo/travel-by-bus-train-night-weather-conditions-fog-double-exposure-abstract-background-digital-illustration_124507-104208.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .header, .footer {
+            background-color: #319795;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .main-content {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 2px solid teal;
+        }
+        .profile-info {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .profile-info img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #319795;
+            margin-bottom: 1rem;
+        }
+        .profile-info h2 {
+            color: #319795;
+            font-size: 2rem;
+            margin: 0;
+        }
+        .profile-info p {
+            color: #4a5568;
+        }
+        .section-title {
+            font-size: 1.75rem;
+            color: #319795;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .info-section {
+            background-color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-top: 1rem;
+        }
+        .info-section p {
+            color: #4a5568;
+            margin: 0.5rem 0;
+        }
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .grid-item {
+            flex: 1;
+            min-width: 250px;
+        }
+        .routes, .contacts {
+            list-style-type: none;
+            padding: 0;
+            color: #4a5568;
+            margin-top: 0.5rem;
+        }
+        .btn {
+            background-color: #319795;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #285e61;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .profile-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <h1>Bus Bee Track</h1>
+        <nav>
+            <a href="new2.html" style="color: #319795; background-color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; margin-right: 1rem;">Home</a>
+            <a href="driverdesh.html" style="color: #319795; background-color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Dashboard</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container main-content">
+    <div class="profile-info">
+        <img src="data:image/png;base64,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" alt="Profile picture of the bus driver">
+        <h2>John Doe</h2>
+        <p>Bus Driver</p>
+        <p>Employee ID: 12345</p>
+    </div>
+
+    <div class="section-title">Driver Information</div>
+    <div class="grid-container">
+        <div class="info-section grid-item">
+            <h4>Contact Information</h4>
+            <p>Phone: +1 234 567 890</p>
+            <p>Email: johndoe@example.com</p>
+            <p>Address: 123 Main St, Springfield, USA</p>
+        </div>
+        <div class="info-section grid-item">
+            <h4>License Information</h4>
+            <p>License Number: ABC123456</p>
+            <p>License Expiry: 12/31/2025</p>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h3 class="section-title">Assigned Routes</h3>
+        <ul class="routes">
+            <li>Route 1: Downtown to Uptown</li>
+        </ul>
+    </div>
+
+    <div class="info-section">
+        <h3 class="section-title">Additional Contacts</h3>
+        <ul class="contacts">
+            <li>Bus Manager: +1 234 567 891</li>
+            <li>Route Manager: +1 234 567 892</li>
+            <li>Emergency: +1 234 567 893</li>
+        </ul>
+    </div>
+
+    <div class="text-center">
+        <button class="btn" onclick="logout()">Logout</button>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2023 Bus Bee Track. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    function logout() {
+        alert('You have been logged out.');
+    }
+</script>
+
+</body>
+</html>

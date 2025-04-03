@@ -1,0 +1,217 @@
+<html>
+<head>
+    <title>Bus Bee Student</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        header, footer {
+            background-color: teal;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav button {
+       background-color: white;
+       border: 2px solid teal;
+       border-radius: 5px;
+       padding: 10px 20px;
+       cursor: pointer;
+     }
+
+     nav button a {
+       text-decoration: none;
+       color: teal;
+       font-size: 18px;
+     }
+
+     nav button:hover {
+       background-color: teal;
+       color: white;
+     }
+
+     nav button a:hover {
+       color: white;
+     }
+        header h1, footer p {
+            margin: 0;
+        }
+        header h1 {
+            font-size: 2.5em;
+            color: white;
+        }
+        h1, h2 {
+            text-align: center;
+            color: teal;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            margin-bottom: 10px;
+            color: teal;
+            font-size: 1.2em;
+        }
+        .section p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+        .section input, .section textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .section button {
+            padding: 10px 20px;
+            background-color: teal;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .section button:hover {
+            background-color: #00695c;
+        }
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .actions button {
+            background-color: teal;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .actions button:hover {
+            background-color: #00695c;
+        }
+        .nav-buttons {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .nav-buttons button {
+            padding: 10px 20px;
+            background-color: teal;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .nav-buttons button:hover {
+            background-color: #00695c;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>My Profile</h1>
+    </header>
+    <div class="container">
+        <div class="nav-buttons">
+             <a href="new2.html" style="color: #319795; background-color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; margin-right: 1rem;">Home</a>
+            <a href="driverdesh.html" style="color: #319795; background-color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Dashboard</a>
+        </div>
+        <h1>BUS BEE STUDENT</h1>
+        
+        <div class="section">
+            <h3>Personal Details</h3>
+            <p>My Name: <span id="studentName">John Doe</span></p>
+            <p>Phone No: <span id="studentPhone">123-456-7890</span></p>
+            <p>E-mail ID: <span id="studentEmail">john.doe@example.com</span></p>
+            <p>Registration ID: <span id="studentRegID">123456</span></p>
+        </div>
+        
+        <div class="section">
+            <h3>My College Details</h3>
+            <p>Institute Name: <span id="instituteName">ABC University</span></p>
+            <p>Enrollment No: <span id="enrollmentNo">789012</span></p>
+        </div>
+        
+        <div class="section">
+            <h3>My Stop/Address</h3>
+            <p>Stop/Address: <span id="stopAddress">123 Main St, City, State</span></p>
+        </div>
+        
+        <div class="section">
+            <h3>My Feedback</h3>
+            <textarea id="feedback" rows="4" placeholder="Enter your feedback here..."></textarea>
+            <button onclick="submitFeedback()">Submit Feedback</button>
+        </div>
+        
+        <div class="actions">
+            <button onclick="logout()">Logout</button>
+            <button onclick="deleteAccount()">Delete Account</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Bus Bee. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const username = window.localStorage.getItem("username")
+        const studeNtName = document.getElementById("studentName")
+        const userName = window.localStorage.getItem("email")
+        const studentName = document.getElementById("studentemail")
+        studentName.innerText = username
+        studentEmail.innerText = email
+        
+        function submitFeedback() {
+            var feedback = document.getElementById('feedback').value;
+            alert('Feedback submitted: ' + feedback);
+        }
+
+        function logout() {
+            alert('You have been logged out.');
+            // Add your logout logic here
+        }
+
+        function deleteAccount() {
+            var confirmation = confirm('Are you sure you want to delete your account? This action cannot be undone.');
+            if (confirmation) {
+                alert('Your account has been deleted.');
+                // Add your delete account logic here
+            }
+        
+        }
+
+        function goHome() {
+            alert('Navigating to Home.');
+            // Add your navigation logic here
+        }
+
+        function goDashboard() {
+            alert('Navigating to Dashboard.');
+            // Add your navigation logic here
+        }
+    </script>
+</body>
+</html>

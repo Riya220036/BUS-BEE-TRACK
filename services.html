@@ -1,0 +1,190 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusBeeTrack - Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            margin: 0;
+            padding: 0;
+            background: url('https://img.freepik.com/premium-photo/travel-by-bus-train-night-weather-conditions-fog-double-exposure-abstract-background-digital-illustration_124507-104208.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        header {
+            background-color:teal;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav button {
+            background-color: white; /* White background color */
+            border: 2px solid teal; /* Teal border color */
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        nav button a {
+            text-decoration: none;
+            color: teal; /* Teal text color */
+            font-size: 18px;
+        }
+
+        nav button:hover {
+            background-color: rgb(236, 240, 240); /* Teal background on hover */
+            color: white;
+            
+        }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem 2rem;
+            
+            
+            
+        }
+        section#services {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid teal;
+        }
+        section#services h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: teal;
+        }
+        section#services .service-item {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        section#services .service-item i {
+            color: teal;
+            font-size: 2.5rem;
+        }
+        section#services .service-item h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            background-color: teal;
+            color: white;
+            text-align: center;
+            padding: 1rem 2rem;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            header nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            main {
+                padding: 1rem;
+            }
+            section#services {
+                padding: 1.5rem;
+            }
+            section#services h2 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            section#services .service-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            section#services .service-item i {
+                font-size: 2rem;
+            }
+            section#services .service-item h3 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>BusBeeTrack</h1>
+            <nav>
+               
+                    <button><li><a href="new2.html">Home</a></li></button>
+            
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="service-item">
+                <i class="fas fa-bus"></i>
+                <div>
+                    <h3>Real-Time Bus Tracking</h3>
+                    <p>Track buses in real-time to know their exact location and estimated arrival times, ensuring you never miss your bus.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-route"></i>
+                <div>
+                    <h3>Route Management</h3>
+                    <p>Drivers can manage their routes efficiently and monitor student boarding to ensure a smooth and safe journey.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-comments"></i>
+                <div>
+                    <h3>User Communication</h3>
+                    <p>Students and drivers can communicate through alerts and feedback options, enhancing the overall experience.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-user-friends"></i>
+                <div>
+                    <h3>User-Friendly Interface</h3>
+                    <p>Our platform is designed to be intuitive and easy to use for both students and drivers, making navigation a breeze.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h3>Security Features</h3>
+                    <p>We prioritize user data protection and privacy with robust security measures to keep your information safe.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-mobile-alt"></i>
+                <div>
+                    <h3>Mobile Compatibility</h3>
+                    <p>Access our system on mobile devices for convenience, ensuring you can stay connected on the go.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 BusBeeTrack. All rights reserved.</p>
+    </footer>
+</body>
+</html>

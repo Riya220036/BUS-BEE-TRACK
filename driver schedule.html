@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bus Bee Track</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: space-between;
+            background: url('https://img.freepik.com/premium-photo/travel-by-bus-train-night-weather-conditions-fog-double-exposure-abstract-background-digital-illustration_124507-104208.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        header, footer {
+            background-color: teal;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        header nav a {
+            color: teal;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: white;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        header nav a:hover {
+            background-color: #e0e0e0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            
+        }
+        .bus-selection {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        .bus-selection label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: white;
+        }
+        .bus-selection select {
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1em;
+            width: 200px;
+            transition: border-color 0.3s;
+            border: 2px solid teal;
+        }
+        .bus-selection select:focus {
+            border-color: teal;
+            outline: none;
+        }
+        .bus-details {
+            margin-top: 20px;
+            display: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid teal;
+        }
+        .bus-details table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: teal;
+        }
+        .bus-details th, .bus-details td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+    
+        }
+        .bus-details th {
+            background-color: teal;
+            color: white;
+        }
+        footer {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function showBusDetails() {
+            var busNo = document.getElementById("bus-no").value;
+            console.log("Selected Bus No:", busNo); // Debugging line
+
+            // Hide all bus details initially
+            document.getElementById("bus79-details").style.display = "none";
+            document.getElementById("busG78-details").style.display = "none";
+            document.getElementById("busG56-details").style.display = "none";
+            document.getElementById("busG3-details").style.display = "none";
+
+            // Show the selected bus details
+            if (busNo === "79") {
+                document.getElementById("bus79-details").style.display = "block";
+            } else if (busNo === "G78") {
+                document.getElementById("busG78-details").style.display = "block";
+            } else if (busNo === "G56") {
+                document.getElementById("busG56-details").style.display = "block";
+            } else if (busNo === "G3") {
+                document.getElementById("busG3-details").style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="flex justify-between items-center px-6">
+        <h1 class="text-2xl font-bold">Bus Bee Track</h1>
+        <nav>
+            <a href="new2.html" class="hover:bg-gray-200">Home</a>
+            <a href="driverdesh.html" class="hover:bg-gray-200">Dashboard</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="bus-selection">
+            <label for="bus-no" class="text-lg font-semibold">Select Bus No:</label>
+            <select id="bus-no" class="border border-gray-300 rounded p-2" onchange="showBusDetails()">
+                <option value="">Select Bus</option>
+                <option value="79">Bus 79</option>
+                <option value="G78">Bus G78</option>
+                <option value="G56">Bus G56</option>
+                <option value="G3">Bus G3</option>
+            </select>
+        </div>
+        
+        <!-- Bus 79 Details -->
+        <div id="bus79-details" class="bus-details">
+            <h2 class="text-xl font-bold">Bus Schedule for Bus 79</h2>
+            <table>
+                <tr>
+                    <th>S.No</th>
+                    <th>Stop Location</th>
+                    <th>I Shift</th>
+                    <th>II Shift</th>
+                </tr>
+                <tr><td>1</td><td>Jinci</td><td>7:15</td><td>9:15</td></tr>
+                <tr><td>2</td><td>Badwali Chouki</td><td>7:17</td><td>9:17</td></tr>
+                <tr><td>3</td><td>Emlibazar</td><td>7:19</td><td>9:19</td></tr>
+                <tr><td>4</td><td>Rambag Chouraha</td><td>7:21</td><td>9:21</td></tr>
+                <tr><td>5</td><td>Lokhand Wala Bridge</td><td>7:23</td><td>9:23</td></tr>
+                <tr><td>6</td><td>Nagarnigam Chouraha</td><td>7:25</td><td>9:25</td></tr>
+                <tr><td>7</td><td>Chiman Bag</td><td>7:27</td><td>9:27</td></tr>
+                <tr><td>8</td><td>Rajkumar Bridge</td><td>7:29</td><td>9:29</td></tr>
+                <tr><td>9</td><td>Balamnagar</td><td>7:31</td><td>9:31</td></tr>
+                <tr><td>10</td><td>Rigal Chouraha</td><td>7:33</td><td>9:33</td></tr>
+                <tr><td>11</td><td>TI Mall</td><td>7:35</td><td>9:35</td></tr>
+                <tr><td>12</td><td>Palasiya</td><td>7:38</td><td>9:38</td></tr>
+            </table>
+        </div>
+        
+        <!-- Bus G78 Details -->
+        <div id="busG78-details" class="bus-details">
+            <h2 class="text-xl font-bold">Bus Schedule for Bus G78</h2>
+            <table>
+                <tr>
+                    <th>S.No</th>
+                    <th>Stop Location</th>
+                    <th>1st Shift</th>
+                    <th>2nd Shift</th>
+                </tr>
+                <tr><td>1</td><td>Hatod (Start)</td><td>6:55</td><td>-</td></tr>
+                <tr><td>2</td><td>Gandhi Nagar (Start)</td><td>7:00</td><td>9:00</td></tr>
+                <tr><td>3</td><td>60 Ft. Road</td><td>7:10</td><td>9:10</td></tr>
+                <tr><td>4</td><td>Sukhdev Nagar (Ring Road)</td><td>7:12</td><td>9:12</td></tr>
+                <tr><td>5</td><td>Palhar Nagar Ring Road</td><td>7:14</td><td>9:14</td></tr>
+                <tr><td>6</td><td>Aerodrum Thana (Start)</td><td>7:10</td><td>9:10</td></tr>
+                <tr><td>7</td><td>Vidhya Dham</td><td>7:12</td><td>9:12</td></tr>
+                <tr><td>8</td><td>Kalani Nagar</td><td>7:13</td><td>9:13</td></tr>
+                <tr><td>9</td><td>Airport Square</td><td>7:15</td><td>9:15</td></tr>
+                <tr><td>10</td><td>Footi Kothi</td><td>7:17</td><td>9:17</td></tr>
+            </table>
+        </div>
+        
+        <!-- Bus G56 Details -->
+        <div id="busG56-details" class="bus-details">
+            <h2 class="text-xl font-bold">Bus Schedule for Bus G56</h2>
+            <table>
+                <tr>
+                    <th>S.No</th>
+                    <th>Stop Location</th>
+                    <th>1st Shift</th>
+                    <th>2nd Shift</th>
+                </tr>
+                <tr><td>1</td><td>Chandragupta Chouraha</td><td>7:00</td><td>9:00</td></tr>
+                <tr><td>2</td><td>Rajiv Gandhi Chouraha</td><td>7:02</td><td>9:02</td></tr>
+                <tr><td>3</td><td>Bypass Square</td><td>7:04</td><td>9:04</td></tr>
+                <tr><td>4</td><td>Sushila Devi Bansal College</td><td>7:05</td><td>9:05</td></tr>
+                <tr><td>5</td><td>Ralamandal</td><td>7:07</td><td>9:07</td></tr>
+                <tr><td>6</td><td>MR10 Bridge</td><td>7:10</td><td>9:10</td></tr>
+                <tr><td>7</td><td>Gurumukh Sadan</td><td>7:12</td><td>9:12</td></tr>
+            </table>
+        </div>
+
+        <!-- Bus G3 Details -->
+        <div id="busG3-details" class="bus-details">
+            <h2 class="text-xl font-bold">Bus Schedule for Bus G3</h2>
+            <table>
+                <tr>
+                    <th>S.No</th>
+                    <th>Stop Location</th>
+                    <th>1st Shift</th>
+                    <th>2nd Shift</th>
+                </tr>
+                <tr><td>1</td><td>Depalpur Chouraha</td><td>6:50</td><td>8:50</td></tr>
+                <tr><td>2</td><td>Depalpur Thana</td><td>6:52</td><td>8:52</td></tr>
+                <tr><td>3</td><td>Janta Colony</td><td>6:55</td><td>8:55</td></tr>
+                <tr><td>4</td><td>Depalpur Naka</td><td>6:57</td><td>8:57</td></tr>
+                <tr><td>5</td><td>Sai Nath Colony</td><td>7:00</td><td>9:00</td></tr>
+                <tr><td>6</td><td>Prabhat Chouraha</td><td>7:03</td><td>9:03</td></tr>
+                <tr><td>7</td><td>Prabhat Square</td><td>7:05</td><td>9:05</td></tr>
+             
+            </table>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Bus Bee Track. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<html>
+<head>
+    <title>Track And Go!</title>
+    <style>
+        body {
+            background: url('https://img.freepik.com/premium-photo/travel-by-bus-train-night-weather-conditions-fog-double-exposure-abstract-background-digital-illustration_124507-104208.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            color: teal;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+          background-color: rgba(0, 128, 128, 0.7);
+          padding: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          animation: fadeIn 1s ease-in-out;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        header-content img {
+            height: 100px;
+        }
+        
+        .header-content h1 {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 36px;
+            margin-left: 20px;
+            color: rgb(250, 255, 255);
+        }
+        nav {
+            background-color: pale aqua;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        nav button {
+            background-color: white; /* White background color */
+            border: 2px solid teal; /* Teal border color */
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        nav button a {
+            text-decoration: none;
+            color: teal; /* Teal text color */
+            font-size: 18px;
+        }
+
+        nav button:hover {
+            background-color: teal; /* Teal background on hover */
+            color: white;
+        }
+
+        nav button a:hover {
+            color: white; /* White text color on hover */
+        }
+    
+        .main-content {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 50px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: slideIn 1s ease-in-out;
+            border: 2px solid teal;
+        }
+        .main-content::before {
+            content: '';
+            background: url('https://storage.googleapis.com/a1aa/image/8J3J5F0J3p7OJJYKL4apB4uHOhvJYp3hrEPeLKy73gL4UD0JA.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.2;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            z-index: -1;
+            border-radius: 10px;
+        }
+        .main-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: darkcyan;
+            animation: fadeIn 2s ease-in-out;
+        }
+          /* Set the size of the map */
+          .main-content {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 50px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: slideIn 1s ease-in-out;
+            border: 2px solid teal;
+        }
+        .main-content::before {
+            content: '';
+            background: url('https://storage.googleapis.com/a1aa/image/8J3J5F0J3p7OJJYKL4apB4uHOhvJYp3hrEPeLKy73gL4UD0JA.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.2;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            z-index: -1;
+            border-radius: 10px;
+        }
+        .main-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: darkcyan;
+            animation: fadeIn 2s ease-in-out;
+        }
+        #map {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        #map iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        footer {
+            background-color: pale aqua;
+            padding: 20px;
+            margin-top: 50px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            color: aliceblue;
+            background-color: rgba(0, 128, 128, 0.7);
+        }
+        
+        footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        footer .footer-content div {
+            flex: 1;
+            text-align: center;
+            margin: 10px 0;
+        }
+        footer .footer-content div p {
+            margin: 5px 0;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img alt="Logo" src="data:image/png;base64,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" alt="Logo" height="100" width="100"/>
+            <h1>BUS BEE TRACK</h1>
+        </div>
+    </header>
+    <nav>
+       <button><a href="new2.html" >HOME</a></button> 
+        <button><a href="contact.html" >CONTACT</a></button>
+        <button><a href="studesh.html" >DASHBOARD</a></button>
+        
+    </nav>
+    <div class="main-content">
+        <h2>Indore City Map</h2>
+        <p>Here is the map of Indore, India:</p>
+        
+        <!-- Embed Google Map of Indore -->
+        <iframe allowfullscreen="" height="700" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235526.94958342303!2d75.69903235924534!3d22.72420500027285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1734021757114!5m2!1sen!2sin" style="border:0;" width="650">
+            
+       
+        </div>
+        <p>CHOOSE YOUR IDENTITY</p>
+    </div>
+    <footer>
+            </div>
+            <div>
+                <p>Contact Us:</p>
+                <p>+91 000-0000-000</p>
+                <p>team05beives@gmail.com</p>
+                <p>Address: 123, Someplace, Somewhere</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,355 @@
+<html>
+<head>
+    <title>Bus Feedback Form</title>
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/premium-photo/travel-by-bus-train-night-weather-conditions-fog-double-exposure-abstract-background-digital-illustration_124507-104208.jpg");
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+    
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); 
+            width: 80%;
+            margin: 20px auto;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border: 1px solid #ccc;
+            border: 2px solid teal;
+        }
+        .header, .footer {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: teal;
+        }
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: teal;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: teal;
+        }
+        .input-group input, .input-group textarea, .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .note {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: teal;
+        }
+        .optional {
+            font-size: 12px;
+            text-align: right;
+            color: teal;
+        }
+        .bus-details {
+            margin-bottom: 20px;
+        }
+        .bus-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .bus-details th, .bus-details td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        .bus-details th {
+            background-color: teal;
+            color: white;
+        }
+        .nav-buttons {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .nav-buttons a {
+            text-decoration: none;
+            color: white;
+            background-color: teal;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+        .feedback-section {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .feedback-section h2 {
+            margin-top: 0;
+            color: teal;
+        }
+        .feedback-section .form-group {
+            margin-bottom: 15px;
+        }
+        .feedback-section .btn {
+            background-color: teal;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .feedback-section .btn:hover {
+            background-color: darkcyan;
+        }
+    </style>
+    <script>
+        var busDetails = {
+            "G70": {
+                "driver": "Pancham Patel",
+                "contact": "9399893872",
+                "busNoPlate": "Mcb",
+                "stops": [
+                    { "location": "Jinci", "shift1": "7:15", "shift2": "9:15" },
+                    { "location": "Badwali chouki", "shift1": "7:17", "shift2": "9:17" },
+                    { "location": "Emlibazar", "shift1": "7:19", "shift2": "9:19" },
+                    { "location": "Rambag Chouraha", "shift1": "7:21", "shift2": "9:21" },
+                    { "location": "Lokhand wala Brige", "shift1": "7:23", "shift2": "9:23" },
+                    { "location": "Nagarnigam chouraha", "shift1": "7:25", "shift2": "9:25" },
+                    { "location": "Chiman Bag", "shift1": "7:27", "shift2": "9:27" },
+                    { "location": "Rajkumar Brige", "shift1": "7:29", "shift2": "9:29" },
+                    { "location": "Balamnagar", "shift1": "7:31", "shift2": "9:31" },
+                    { "location": "Rigal Chouraha", "shift1": "7:33", "shift2": "9:33" },
+                    { "location": "TI Moll", "shift1": "7:35", "shift2": "9:35" },
+                    { "location": "Palasıya", "shift1": "7:38", "shift2": "9:38" }
+                ]
+            },
+            "G37": {
+                "driver": "Bhuoendra Karle",
+                "contact": "7747033159",
+                "busNoPlate": "G-37",
+                "stops": [
+                    { "location": "Banganga Stop Old Naka (Start)", "shift1": "7:15", "shift2": "9:15" },
+                    { "location": "Marimata Chouraha", "shift1": "7:20", "shift2": "9:20" },
+                    { "location": "Agniban Press Chouraha", "shift1": "7:22", "shift2": "9:22" },
+                    { "location": "Rajkumar Bridge (Vallabh Nagar)", "shift1": "7:24", "shift2": "9:24" },
+                    { "location": "Malwa Mill", "shift1": "7:25", "shift2": "9:25" },
+                    { "location": "Ranisati Gate", "shift1": "7:27", "shift2": "9:27" },
+                    { "location": "City Office Chouraha", "shift1": "7:30", "shift2": "9:30" },
+                    { "location": "Janjirwala Chouraha", "shift1": "7:32", "shift2": "9:32" },
+                    { "location": "Industry House", "shift1": "7:35", "shift2": "9:35" },
+                    { "location": "Palasia Thana", "shift1": "7:36", "shift2": "9:36" },
+                    { "location": "Khajrana Chouraha", "shift1": "7:40", "shift2": "9:40" },
+                    { "location": "Robot Chouraha", "shift1": "7:42", "shift2": "9:42" },
+                    { "location": "Malvi Petrol Pump", "shift1": "7:45", "shift2": "9:45" },
+                    { "location": "Acropolis College", "shift1": "8:10", "shift2": "10:10" }
+                ]
+            },
+            "G49": {
+                "driver": "Ajay Rathore",
+                "contact": "8349413091",
+                "busNoPlate": "G-49",
+                "stops": [
+                    { "location": "Marimata Chouraha", "shift1": "7:15", "shift2": "9:15" },
+                    { "location": "Agniban Press Chouraha", "shift1": "7:17", "shift2": "9:17" },
+                    { "location": "Rajkumar Bridge (Vallabh Nagar)", "shift1": "7:18", "shift2": "9:18" },
+                    { "location": "Malwa Mill", "shift1": "7:20", "shift2": "9:20" },
+                    { "location": "Ranisati Gate", "shift1": "7:21", "shift2": "9:21" },
+                    { "location": "City Office Chouraha", "shift1": "7:22", "shift2": "9:22" },
+                    { "location": "Janjirwala Chouraha", "shift1": "7:23", "shift2": "9:23" },
+                    { "location": "Industry House", "shift1": "7:25", "shift2": "9:25" },
+                    { "location": "Palasia Thana", "shift1": "7:27", "shift2": "9:27" },
+                    { "location": "Khajrana Chouraha", "shift1": "7:32", "shift2": "9:32" },
+                    { "location": "Robot Chouraha", "shift1": "7:35", "shift2": "9:35" },
+                    { "location": "Malvi Petrol Pump", "shift1": "7:37", "shift2": "9:37" },
+                    { "location": "Acropolis College", "shift1": "8:10", "shift2": "10:10" }
+                ]
+            },
+            "G41": {
+                "driver": "Omkarlal Choudhary",
+                "contact": "7869852937",
+                "busNoPlate": "G-41",
+                "stops": [
+                    { "location": "Vidhya Palace Chhota Bangrda (Start)", "shift1": "7:00", "shift2": "9:00" },
+                    { "location": "Yadav Dharmshala", "shift1": "7:02", "shift2": "9:02" },
+                    { "location": "Rukmani Nagar", "shift1": "7:05", "shift2": "9:05" },
+                    { "location": "Kali Mata Mandir", "shift1": "7:07", "shift2": "9:07" },
+                    { "location": "Rambali Nagar", "shift1": "7:08", "shift2": "9:08" },
+                    { "location": "Doodh Dairy", "shift1": "7:09", "shift2": "9:09" },
+                    { "location": "Sangam Nagar", "shift1": "7:10", "shift2": "9:10" },
+                    { "location": "Khada Ganpati", "shift1": "7:12", "shift2": "9:12" },
+                    { "location": "Mahesh Gard Line Petrol Pump", "shift1": "7:13", "shift2": "9:13" },
+                    { "location": "Banganga Stop Old Naka (Start)", "shift1": "7:15", "shift2": "9:15" },
+                    { "location": "Marimata Chouraha", "shift1": "7:15", "shift2": "9:15" },
+                    { "location": "Agniban Press Chouraha", "shift1": "7:17", "shift2": "9:17" },
+                    { "location": "Rajkumar Bridge (Vallabh Nagar)", "shift1": "7:18", "shift2": "9:18" },
+                    { "location": "Malwa Mill", "shift1": "7:20", "shift2": "9:20" },
+                    { "location": "Ranisati Gate", "shift1": "7:21", "shift2": "9:21" },
+                    { "location": "City Office Chouraha", "shift1": "7:22", "shift2": "9:22" },
+                    { "location": "Janjirwala Chouraha", "shift1": "7:23", "shift2": "9:23" },
+                    { "location": "Industry House", "shift1": "7:25", "shift2": "9:25" },
+                    { "location": "Palasia Thana", "shift1": "7:27", "shift2": "9:27" },
+                    { "location": "Khajrana Chouraha", "shift1": "7:32", "shift2": "9:32" },
+                    { "location": "Robot Chouraha", "shift1": "7:35", "shift2": "9:35" },
+                    { "location": "Malvi Petrol Pump", "shift1": "7:37", "shift2": "9:37" },
+                    { "location": "Acropolis College", "shift1": "8:10", "shift2": "10:10" }
+                ]
+            }
+        };
+
+        function showAvailableBuses() {
+            var shift = document.getElementById("shift").value;
+            var route = document.getElementById("route").value;
+            var busSelect = document.getElementById("bus-no");
+
+            busSelect.innerHTML = "<option value=''>Select Bus</option>";
+
+            for (var bus in busDetails) {
+                if (busDetails.hasOwnProperty(bus)) {
+                    var stops = busDetails[bus].stops;
+                    for (var i = 0; i < stops.length; i++) {
+                        if (stops[i].location === route) {
+                            busSelect.innerHTML += "<option value='" + bus + "'>" + bus + "</option>";
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        function showBusDetails() {
+            var selectedBus = document.getElementById("bus-no").value;
+            if (busDetails[selectedBus]) {
+                document.getElementById("driver-contact").value = busDetails[selectedBus].contact;
+                document.getElementById("bus-no-plate").value = busDetails[selectedBus].busNoPlate;
+                document.getElementById("transport-manager").value = busDetails[selectedBus].driver;
+
+                var stopsTable = document.getElementById("stops-table");
+                stopsTable.innerHTML = "<tr><th>S.No</th><th>Stop Location</th><th>I Shift</th><th>II Shift</th></tr>";
+                busDetails[selectedBus].stops.forEach(function(stop, index) {
+                    var row = stopsTable.insertRow();
+                    row.insertCell(0).innerHTML = index + 1;
+                    row.insertCell(1).innerHTML = stop.location;
+                    row.insertCell(2).innerHTML = stop.shift1;
+                    row.insertCell(3).innerHTML = stop.shift2;
+                });
+            } else {
+                document.getElementById("driver-contact").value = "";
+                document.getElementById("bus-no-plate").value = "";
+                document.getElementById("transport-manager").value = "";
+                document.getElementById("stops-table").innerHTML = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            BUS BEE STUDENT
+        </div>
+        <div class="nav-buttons">
+            <a href="new2.html"><i class="fas fa-home"></i>Home</a>
+            <a href="studesh.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+        </div>
+       
+    
+         <div class="section-title">
+            BUS DETAILS
+           </div>
+        <div class="input-group">
+            <label for="shift">Choose Shift:</label>
+            <select id="shift" name="shift" onchange="showAvailableBuses()">
+                <option value="">Select Shift</option>
+                <option value="shift1">I Shift</option>
+                <option value="shift2">II Shift</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="route">Choose Route:</label>
+            <select id="route" name="route" onchange="showAvailableBuses()">
+                <option value="">Select Route</option>
+                <option value="Jinci">Jinci</option>
+                <option value="Badwali chouki">Badwali chouki</option>
+                <option value="Emlibazar">Emlibazar</option>
+                <option value="Rambag Chouraha">Rambag Chouraha</option>
+                <option value="Lokhand wala Brige">Lokhand wala Brige</option>
+                <option value="Nagarnigam chouraha">Nagarnigam chouraha</option>
+                <option value="Chiman Bag">Chiman Bag</option>
+                <option value="Rajkumar Brige">Rajkumar Brige</option>
+                <option value="Balamnagar">Balamnagar</option>
+                <option value="Rigal Chouraha">Rigal Chouraha</option>
+                <option value="TI Moll">TI Moll</option>
+                <option value="Palasıya">Palasıya</option>
+                <option value="Banganga Stop Old Naka (Start)">Banganga Stop Old Naka (Start)</option>
+                <option value="Marimata Chouraha">Marimata Chouraha</option>
+                <option value="Agniban Press Chouraha">Agniban Press Chouraha</option>
+                <option value="Rajkumar Bridge (Vallabh Nagar)">Rajkumar Bridge (Vallabh Nagar)</option>
+                <option value="Malwa Mill">Malwa Mill</option>
+                <option value="Ranisati Gate">Ranisati Gate</option>
+                <option value="City Office Chouraha">City Office Chouraha</option>
+                <option value="Janjirwala Chouraha">Janjirwala Chouraha</option>
+                <option value="Industry House">Industry House</option>
+                <option value="Palasia Thana">Palasia Thana</option>
+                <option value="Khajrana Chouraha">Khajrana Chouraha</option>
+                <option value="Robot Chouraha">Robot Chouraha</option>
+                <option value="Malvi Petrol Pump">Malvi Petrol Pump</option>
+                <option value="Acropolis College">Acropolis College</option>
+                <option value="Vidhya Palace Chhota Bangrda (Start)">Vidhya Palace Chhota Bangrda (Start)</option>
+                <option value="Yadav Dharmshala">Yadav Dharmshala</option>
+                <option value="Rukmani Nagar">Rukmani Nagar</option>
+                <option value="Kali Mata Mandir">Kali Mata Mandir</option>
+                <option value="Rambali Nagar">Rambali Nagar</option>
+                <option value="Doodh Dairy">Doodh Dairy</option>
+                <option value="Sangam Nagar">Sangam Nagar</option>
+                <option value="Khada Ganpati">Khada Ganpati</option>
+                <option value="Mahesh Gard Line Petrol Pump">Mahesh Gard Line Petrol Pump</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="bus-no">My Bus No:</label>
+            <select id="bus-no" name="bus-no" onchange="showBusDetails()">
+                <option value="">Select Bus</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="driver-contact">My Driver Contact No:</label>
+            <input type="text" id="driver-contact" name="driver-contact" readonly>
+        </div>
+        <div class="input-group">
+            <label for="bus-no-plate">Bus No Plate:</label>
+            <input type="text" id="bus-no-plate" name="bus-no-plate" readonly>
+        </div>
+        <div class="input-group">
+            <label for="transport-manager">Contact Transport Manager:</label>
+            <input type="text" id="transport-manager" name="transport-manager" readonly>
+        </div>
+        <div class="bus-details">
+            <table id="stops-table">
+                <!-- Bus stops will be populated here -->
+            </table>
+        </div>
+        <div class="feedback-section">
+            <h2>Feedback</h2>
+            <div class="form-group">
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="upload">Upload Picture/Video (Optional):</label>
+                <input type="file" id="upload" name="upload">
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </div>
+      </form>
+    </div>
+        </body>
+  </html>
